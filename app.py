@@ -31,6 +31,7 @@ SOURCES = [
     'Norwood\'s TTRPG',
     'Paulus Hector Mair',
     'Meyer',
+    'Street Sword: Practical Use of the Long Blade for Self-Defense', 
 ]
 
 TRIGGER_WORDS = [
