@@ -59,18 +59,18 @@ def do_i_care(message: str) -> bool:
 def get_response_message(trigger_message: str) -> str:
     """
     Builds a response message
-    :param _: cache key, otherwise unused
+    :param trigger_message: message that triggered the event
     :return: a response message
     """
     intro = random.choice(INTROS)
     if intro == INTROS[-1]:
         response = f'{intro}that isn\'t source-based'
     else:
-        if "brent" in trigger_message.lower():
-            source = "Charles Lin's Twisted Mind"
-        else:
-            source = random.choice(SOURCES)
-        response = f'{intro}that\'s in {source}'
+        response = f'{intro}that\'s in {random.choice(SOURCES)}'
+
+    if 'brent' in trigger_message.lower():
+        response = f'That\'s definitely from Charles Lin\'s Twisted Mind'
+
     return response
 
 
