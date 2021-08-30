@@ -56,7 +56,7 @@ def do_i_care(message: str) -> bool:
 
 
 @lru_cache(maxsize=1024)
-def get_response_message(_: str) -> str:
+def get_response_message(trigger_message: str) -> str:
     """
     Builds a response message
     :param _: cache key, otherwise unused
@@ -66,7 +66,11 @@ def get_response_message(_: str) -> str:
     if intro == INTROS[-1]:
         response = f'{intro}that isn\'t source-based'
     else:
-        response = f'{intro}that\'s in {random.choice(SOURCES)}'
+        if "brent" in trigger_message.lower():
+            source = "Charles Lin's Twisted Mind"
+        else:
+            source = random.choice(SOURCES)
+        response = f'{intro}that\'s in {source}'
     return response
 
 
