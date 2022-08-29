@@ -38,6 +38,15 @@ SOURCES = [
     'Street Sword: Practical Use of the Long Blade for Self-Defense', 
 ]
 
+BULLSHIT_SOURCES = [
+    'not source-based',
+    'some bullshit that Shadiversity made up and called HEMA.',
+    'some HEMAism that people pass around as common knowledge even though it\'s not supported by any sources.',
+    'some weird play from Talhoffer that doesn\'t make any damn sense.',
+    'something that people made up and said it\'s from Liechtenauer, even though it isn\'t.',
+    "something Brent made up."
+]
+
 TRIGGER_WORDS = [
     'sources',
     'source-based',
@@ -68,7 +77,7 @@ def get_response_message(trigger_message: str) -> str:
     """
     intro = random.choice(INTROS)
     if intro == INTROS[-1]:
-        response = f'{intro}that isn\'t source-based'
+        response = f'{intro}that\'s {random.choice(BULLSHIT_SOURCES)}'
     else:
         response = f'{intro}that\'s in {random.choice(SOURCES)}'
 
