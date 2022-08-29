@@ -44,7 +44,7 @@ BULLSHIT_SOURCES = [
     'some HEMAism that people pass around as common knowledge even though it\'s not supported by any sources.',
     'some weird play from Talhoffer that doesn\'t make any damn sense.',
     'something that people made up and said it\'s from Liechtenauer, even though it isn\'t.',
-    'something Brent made up.'
+    'something Brent made up.',
 ]
 
 TRIGGER_WORDS = [
