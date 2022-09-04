@@ -18,6 +18,7 @@ INTROS = [
     'Yes actually, ',
     'As I recall, ',
     'No, ',
+    'Nope, ',
 ]
 
 SOURCES = [
@@ -44,7 +45,11 @@ BULLSHIT_SOURCES = [
     'some HEMAism that people pass around as common knowledge even though it\'s not supported by any sources.',
     'some weird play from Talhoffer that doesn\'t make any damn sense.',
     'something that people made up and said it\'s from Liechtenauer, even though it isn\'t.',
-    'something Brent made up.',
+    'something that Brent made up as a joke.',
+    'on the same level of HEMA as Polish saber or Viking combat, which is to say that it\'s not HEMA.',
+    'the equivalent of people claiming to do \"Byzantine longsword\" or \"Dane axe combat\" or something like that, aka a bunch of bullshit that they made up.',
+    'the delusional ramblings of LindyBeige using \"logic\" and \"reason\" to invent some completely ahistorical combat system using whatever works for him, with no academic rigor or actual historical sources involved whatsoever.',
+    'some whack-a-doodle martial fantasy nonsense made up by someone who unironically thinks too much about what they would do in a Real Sword Fight.',
 ]
 
 TRIGGER_WORDS = [
@@ -76,7 +81,7 @@ def get_response_message(trigger_message: str) -> str:
     :return: a response message
     """
     intro = random.choice(INTROS)
-    if intro == INTROS[-1]:
+    if intro == 'No, ' or intro == 'Nope, ':
         response = f'{intro}that\'s {random.choice(BULLSHIT_SOURCES)}'
     else:
         response = f'{intro}that\'s in {random.choice(SOURCES)}'
