@@ -18,7 +18,10 @@ INTROS = [
     'Yes actually, ',
     'As I recall, ',
     'No, ',
-    'Nope, ',
+    'No, ',
+    'No, ',
+    'No, ',
+    'No, ',
 ]
 
 SOURCES = [
@@ -81,7 +84,7 @@ def get_response_message(trigger_message: str) -> str:
     :return: a response message
     """
     intro = random.choice(INTROS)
-    if intro == 'No, ' or intro == 'Nope, ':
+    if intro == 'No, ':
         response = f'{intro}that\'s {random.choice(BULLSHIT_SOURCES)}'
     else:
         response = f'{intro}that\'s in {random.choice(SOURCES)}'
