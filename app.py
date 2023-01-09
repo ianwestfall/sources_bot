@@ -28,7 +28,7 @@ SOURCES = [
     'Liechtenauer',
     'Fiore dei Liberi',
     'Peter von Danzig',
-    'Jude Lew',
+    'Jude Lew and his beautiful ass art',
     'Ringeck',
     'I.33',
     'The Zettel',
@@ -60,6 +60,7 @@ SOURCES = [
     'Foil',
     'Epee',
     'The Ledall Roll, but that\'s a terrible source so it barely counts',
+    'a book I once found in a cardboard box full of porn in the forest'
 ]
 
 BULLSHIT_SOURCES = [
