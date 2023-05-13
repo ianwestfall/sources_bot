@@ -1,15 +1,11 @@
 import os
 import random
+import re
 from functools import lru_cache
+from typing import Optional
 
 import discord
 from dotenv import load_dotenv
-
-load_dotenv()
-TOKEN = os.getenv("DISCORD_TOKEN")
-
-if not TOKEN:
-    raise Exception("Missing required env var DISCORD_TOKEN")
 
 INTROS = [
     "Oh yea, ",
@@ -88,15 +84,20 @@ TRIGGER_WORDS = [
 client = discord.Client()
 
 
-def do_i_care(message: str) -> bool:
+def do_i_care(message: Optional[str]) -> bool:
     """
     Checks if the received message should trigger a bot response
     :param message:
     :return: True if the bot cares about the message, False otherwise
     """
-    for trigger in TRIGGER_WORDS:
-        if trigger in message.lower():
-            return True
+    if message:
+        for trigger in TRIGGER_WORDS:
+            pattern = r"\s".join(
+                trigger.split()
+            )  # Require a single whitespace between words
+            pattern = rf"\b{pattern}\b"  # Match whitespace or word boundary around trigger phrases
+            if re.search(pattern, message):
+                return True
     return False
 
 
@@ -139,4 +140,11 @@ async def on_message(message):
         await message.channel.send(get_response_message(message.content))
 
 
-client.run(TOKEN)
+if __name__ == "__main__":
+    load_dotenv()
+
+    TOKEN = os.getenv("DISCORD_TOKEN")
+    if not TOKEN:
+        raise Exception("Missing required env var DISCORD_TOKEN")
+
+    client.run(TOKEN)
