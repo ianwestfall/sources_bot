@@ -61,6 +61,7 @@ SOURCES = [
     "Epee",
     "The Ledall Roll, but that's a terrible source so it barely counts",
     "a book I once found in a cardboard box full of porn in the forest",
+    "Da Mystery of Chessboxin by the WuTang Clan, but you already knew that, RIGHT",
 ]
 
 BULLSHIT_SOURCES = [
@@ -75,6 +76,7 @@ BULLSHIT_SOURCES = [
     'the delusional ramblings of LindyBeige using "logic" and "reason" to invent some completely ahistorical combat system using whatever works for him, with no academic rigor or actual historical sources involved whatsoever.',
     "some whack-a-doodle martial fantasy nonsense made up by someone who unironically thinks too much about what they would do in a Real Sword Fight.",
     "not HEMA. That's an Ash of War from Elden Ring.",
+    "some shit ODB and Method Man thought up while they was dustin'",
 ]
 
 TRIGGER_WORDS = [
