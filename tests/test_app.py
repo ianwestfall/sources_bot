@@ -21,3 +21,5 @@ from app import TRIGGER_WORDS, do_i_care
 )
 def test_do_i_care(test_message, expected_response):
     assert do_i_care(test_message) is expected_response
+    if test_message:
+        assert do_i_care(test_message.upper()) is expected_response
