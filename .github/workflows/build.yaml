@@ -1,7 +1,7 @@
 name: Build
 on: [push]
 env:
-  PYTHON_VERSION: 3.10.5
+  PYTHON_VERSION: 3.10.11
 jobs:
   lint:
     name: Lints the code
