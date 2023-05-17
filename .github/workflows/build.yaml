@@ -18,7 +18,7 @@ jobs:
       - name: Install dependencies
         run: pipenv sync --dev
       - name: Black
-        run: pipenv run black --check
+        run: pipenv run black --check .
   test:
     name: Runs unit tests
     runs-on: ubuntu-latest
