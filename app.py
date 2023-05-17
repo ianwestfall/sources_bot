@@ -93,10 +93,10 @@ def do_i_care(message: Optional[str]) -> bool:
     if message:
         for trigger in TRIGGER_WORDS:
             pattern = r"\s".join(
-                trigger.split()
+                trigger.lower().split()
             )  # Require a single whitespace between words
             pattern = rf"\b{pattern}\b"  # Match whitespace or word boundary around trigger phrases
-            if re.search(pattern, message):
+            if re.search(pattern, message.lower()):
                 return True
     return False
 
