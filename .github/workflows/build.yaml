@@ -1,8 +1,41 @@
 name: Build
 on: [push]
 jobs:
+  lint:
+    name: Lints the code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.10
+      - name: Install pipenv
+        run: pip install pipenv
+      - name: Install dependencies
+        run: pipenv sync --dev
+      - name: Black
+        run: pipenv run black --check
+  test:
+    name: Runs unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.10
+      - name: Install pipenv
+        run: pip install pipenv
+      - name: Install dependencies
+        run: pipenv sync --dev
+      - name: Test
+        run: pipenv run pytest
   build-and-publish-container:
     name: Build and publish container to Docker Hub
+    needs: [lint, test]
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
@@ -26,6 +59,6 @@ jobs:
         with:
           context: .
           platforms: linux/amd64,linux/arm/v7
-          push: true
+          push: ${{ github.ref_name == 'main' }} # Only push to Dockerhub if this is the main branch
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
